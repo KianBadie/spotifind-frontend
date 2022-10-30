@@ -18,7 +18,7 @@ function App() {
     }
 
     if(authCode) getToken();
-  });
+  }, []);
 
   return (
     <div>
