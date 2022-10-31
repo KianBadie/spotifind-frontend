@@ -13,9 +13,8 @@ function Search(props) {
         return data.items;
     }
 
-    async function getPlaylistItems(token, playlist) {
-        const tracksUrl = playlist.tracks.href;
-        const res = await axios.get(tracksUrl, { headers: { 'Authorization': `Bearer ${token}` } });
+    async function getPlaylistItems(token, id) {
+        const res = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks`, { headers: { 'Authorization': `Bearer ${token}` } });
         const data = res.data;
         return data.items;
     }
@@ -38,7 +37,7 @@ function Search(props) {
     useEffect(() => {
         async function initializeIndex() {
             const playlists = await getPlaylist(props.token);
-            const playlistItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist)));
+            const playlistItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const trackDocs = [];
             for(let i = 0; i < playlists.length; i++) {
                 trackDocs.push(...getPlaylistTrackDocs(playlists[i], playlistItems[i]));
