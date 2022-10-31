@@ -19,43 +19,40 @@ function Search(props) {
         return data.items;
     }
 
-    function getPlaylistTrackDocs(playlist, playlistItems) {
-        const trackDocs = playlistItems.map(playlistItem => {
+    function getPlaylistItemDocuments(playlist, playlistItems) {
+        const documents = playlistItems.map((playlistItem, i) => {
             const track = playlistItem.track;
+            const id = `${playlist.id}+${i}`;
             const artist = track.artists.map(artist => artist.name);
             return {
-                id: track.id,
+                id: id,
                 name: track.name,
                 album: track.album.name,
                 artist: artist,
-                playlist: playlist.name
+                playlist: playlist
             }
         });
-        return trackDocs;
+        return documents;
     }
 
     useEffect(() => {
         async function initializeIndex() {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
-            const trackDocs = [];
+            const documents = [];
             for(let i = 0; i < playlists.length; i++) {
-                trackDocs.push(...getPlaylistTrackDocs(playlists[i], playlistsItems[i]));
+                documents.push(...getPlaylistItemDocuments(playlists[i], playlistsItems[i]));
             }
-
-            console.log(trackDocs);
 
             const index = lunr(function() {
                 this.ref('id');
                 this.field('name');
                 this.field('album');
                 this.field('artist');
-                trackDocs.forEach((trackDoc) => this.add(trackDoc));
+                documents.forEach((trackDoc) => this.add(trackDoc));
             });
 
             setIndex(index);
-
-            console.log(index.search('last star'));
         }
 
         initializeIndex();
