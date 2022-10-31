@@ -6,6 +6,7 @@ import lunr from 'lunr';
 function Search(props) {
 
     const [index, setIndex] = useState();
+    const [documentDict, setDocumentDict] = useState();
 
     async function getPlaylist(token) {
         const res = await axios.get('https://api.spotify.com/v1/me/playlists', { headers: { 'Authorization': `Bearer ${token}` } });
@@ -44,6 +45,11 @@ function Search(props) {
                 documents.push(...getPlaylistItemDocuments(playlists[i], playlistsItems[i]));
             }
 
+            setDocumentDict(documents.reduce((dict, document) => {
+                dict[document.id] = document;
+                return dict;
+            }, {}));
+
             const index = lunr(function() {
                 this.ref('id');
                 this.field('name');
@@ -52,7 +58,7 @@ function Search(props) {
                 documents.forEach((trackDoc) => this.add(trackDoc));
             });
 
-            setIndex(index);
+            setIndex(index);         
         }
 
         initializeIndex();
