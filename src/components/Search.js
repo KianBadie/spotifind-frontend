@@ -1,24 +1,13 @@
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
 import lunr from 'lunr';
+
+import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 
 function Search(props) {
 
     const [index, setIndex] = useState();
     const [documentDict, setDocumentDict] = useState();
-
-    async function getPlaylist(token) {
-        const res = await axios.get('https://api.spotify.com/v1/me/playlists', { headers: { 'Authorization': `Bearer ${token}` } });
-        const data = res.data;
-        return data.items;
-    }
-
-    async function getPlaylistItems(token, id) {
-        const res = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks`, { headers: { 'Authorization': `Bearer ${token}` } });
-        const data = res.data;
-        return data.items;
-    }
 
     function getPlaylistItemDocuments(playlist, playlistItems) {
         const documents = playlistItems.map((playlistItem, i) => {
