@@ -40,7 +40,7 @@ function Search(props) {
         async function initializeIndex() {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
-            const documents = playlists.map((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i])).flat();
+            const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
 
             setDocumentDict(documents.reduce((dict, document) => {
                 dict[document.id] = document;
