@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import lunr from 'lunr';
-
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
+import { documentsToDict, createIndex } from '../searchUtils';
 
 function Search(props) {
 
@@ -30,21 +29,10 @@ function Search(props) {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
-            const documentDict = documents.reduce((dict, document) => {
-                dict[document.id] = document;
-                return dict;
-            }, {});
+            const documentDict = documentsToDict(documents);
+            const index = createIndex(documents, ['name', 'album', 'artist']);
 
             setDocumentDict(documentDict);
-
-            const index = lunr(function() {
-                this.ref('id');
-                this.field('name');
-                this.field('album');
-                this.field('artist');
-                documents.forEach((trackDoc) => this.add(trackDoc));
-            });
-
             setIndex(index);         
         }
 
