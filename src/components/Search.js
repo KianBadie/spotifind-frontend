@@ -37,10 +37,10 @@ function Search(props) {
     useEffect(() => {
         async function initializeIndex() {
             const playlists = await getPlaylist(props.token);
-            const playlistItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
+            const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const trackDocs = [];
             for(let i = 0; i < playlists.length; i++) {
-                trackDocs.push(...getPlaylistTrackDocs(playlists[i], playlistItems[i]));
+                trackDocs.push(...getPlaylistTrackDocs(playlists[i], playlistsItems[i]));
             }
 
             console.log(trackDocs);
