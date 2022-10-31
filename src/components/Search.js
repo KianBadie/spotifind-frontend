@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import lunr from 'lunr';
 
 function Search(props) {
+
+    const [index, setIndex] = useState();
 
     async function getPlaylist(token) {
         const res = await axios.get('https://api.spotify.com/v1/me/playlists', { headers: { 'Authorization': `Bearer ${token}` } });
@@ -22,6 +25,7 @@ function Search(props) {
             const track = playlistItem.track;
             const artist = track.artists.map(artist => artist.name);
             return {
+                id: track.id,
                 name: track.name,
                 album: track.album.name,
                 artist: artist,
@@ -39,7 +43,20 @@ function Search(props) {
             for(let i = 0; i < playlists.length; i++) {
                 trackDocs.push(...getPlaylistTrackDocs(playlists[i], playlistItems[i]));
             }
+
             console.log(trackDocs);
+
+            const index = lunr(function() {
+                this.ref('id');
+                this.field('name');
+                this.field('album');
+                this.field('artist');
+                trackDocs.forEach((trackDoc) => this.add(trackDoc));
+            });
+
+            setIndex(index);
+
+            console.log(index.search('last star'));
         }
 
         initializeIndex();
