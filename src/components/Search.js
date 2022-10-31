@@ -25,7 +25,7 @@ function Search(props) {
     }
 
     useEffect(() => {
-        async function initializeIndex() {
+        async function initializeSearch() {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
@@ -35,7 +35,7 @@ function Search(props) {
             setDocumentDict(documentDict);     
         }
 
-        initializeIndex();
+        initializeSearch();
     }, []);
 
     return (
