@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
-import { documentsToDict, createIndex } from '../searchUtils';
+import SearchIndex from '../SearchIndex';
 
 function Search(props) {
 
-    const [index, setIndex] = useState();
-    const [documentDict, setDocumentDict] = useState();
+    const [searchIndex, setSearchIndex] = useState();
 
     function getPlaylistItemDocuments(playlist, playlistItems) {
         const documents = playlistItems.map((playlistItem, i) => {
@@ -29,10 +28,8 @@ function Search(props) {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
-            const index = createIndex(documents, ['name', 'album', 'artist']);
-            const documentDict = documentsToDict(documents);
-            setIndex(index);
-            setDocumentDict(documentDict);     
+            const searchIndex = new SearchIndex(documents, ['name', 'album', 'artist']);
+            setSearchIndex(searchIndex);
         }
 
         initializeSearch();
