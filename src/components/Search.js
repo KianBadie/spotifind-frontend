@@ -29,11 +29,10 @@ function Search(props) {
             const playlists = await getPlaylist(props.token);
             const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
             const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
-            const documentDict = documentsToDict(documents);
             const index = createIndex(documents, ['name', 'album', 'artist']);
-
-            setDocumentDict(documentDict);
-            setIndex(index);         
+            const documentDict = documentsToDict(documents);
+            setIndex(index);
+            setDocumentDict(documentDict);     
         }
 
         initializeIndex();
