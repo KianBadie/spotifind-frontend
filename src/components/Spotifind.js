@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Track from './Track';
 
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
+import { getPlaylistItemDocuments } from '../utilities';
 import SearchIndex from '../SearchIndex';
 
 function Spotifind(props) {
@@ -9,22 +10,6 @@ function Spotifind(props) {
     const [searchIndex, setSearchIndex] = useState();
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
-
-    function getPlaylistItemDocuments(playlist, playlistItems) {
-        const documents = playlistItems.map((playlistItem, i) => {
-            const track = playlistItem.track;
-            const id = `${playlist.id}+${i}`;
-            const artist = track.artists.map(artist => artist.name);
-            return {
-                id: id,
-                name: track.name,
-                album: track.album.name,
-                artist: artist,
-                playlist: playlist
-            }
-        });
-        return documents;
-    }
 
     useEffect(() => {
         async function init() {
