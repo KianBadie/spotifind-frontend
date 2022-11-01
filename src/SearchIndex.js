@@ -9,6 +9,7 @@ class SearchIndex {
         this.index = lunr(function() {
             this.ref('id');
             fields.forEach(field => this.field(field));
+            this.pipeline.remove(lunr.stopWordFilter);
             documents.forEach((doc) => this.add(doc));
         });
 
