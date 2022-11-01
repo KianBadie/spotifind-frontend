@@ -38,11 +38,20 @@ function Spotifind(props) {
         init();
     }, []);
 
+    useEffect(() => {
+        if(query.length == 0) return;
+
+        const searchTimeout = setTimeout(() => {
+            const results = searchIndex.search(query);
+            setResults(results);
+        }, 250);
+
+        return () => clearTimeout(searchTimeout);
+    }, [query]);
+
     function handleChange(e) {
         const query = e.target.value;
-        const results = searchIndex.search(query);
         setQuery(query);
-        setResults(results);
     }
 
     const resultList = results.map(result => (
