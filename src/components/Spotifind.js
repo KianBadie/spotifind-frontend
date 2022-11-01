@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 import SearchIndex from '../SearchIndex';
 
-function Search(props) {
+function Spotifind(props) {
 
     const [searchIndex, setSearchIndex] = useState();
     const [query, setQuery] = useState('');
@@ -67,4 +67,4 @@ function Search(props) {
 
 }
 
-export default Search;
+export default Spotifind;

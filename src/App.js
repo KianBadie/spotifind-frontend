@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Login from './components/Login';
-import Search from './components/Search';
+import Spotifind from './components/Spotifind';
 
 import axios from 'axios';
 
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-      { !token ? <Login/> : <Search token={token} /> }
+      { !token ? <Login/> : <Spotifind token={token} /> }
     </div>
   );
 
