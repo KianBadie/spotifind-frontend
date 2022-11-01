@@ -6,6 +6,8 @@ import SearchIndex from '../SearchIndex';
 function Search(props) {
 
     const [searchIndex, setSearchIndex] = useState();
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState([]);
 
     function getPlaylistItemDocuments(playlist, playlistItems) {
         const documents = playlistItems.map((playlistItem, i) => {
@@ -35,9 +37,31 @@ function Search(props) {
         init();
     }, []);
 
+    function handleChange(e) {
+        const query = e.target.value;
+        const results = searchIndex.search(query);
+        setQuery(query);
+        setResults(results);
+    }
+
+    const resultList = results.map(result => {
+        const track = result.document;
+        const playlist = track.playlist;
+        return (
+            <li key={result.ref}>{playlist.name} - {track.name}</li>
+        );
+    });
+
     return (
         <div>
-            Search component.
+            <input 
+                type='search'
+                value={query}
+                onChange={handleChange}
+            />
+            <ul>
+                {resultList}
+            </ul>
         </div>
     );
 
