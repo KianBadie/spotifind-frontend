@@ -11,17 +11,19 @@ function Spotifind(props) {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
+    const { token } = props;
+
     useEffect(() => {
         async function init() {
-            const playlists = await getPlaylist(props.token);
-            const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(props.token, playlist.id)));
+            const playlists = await getPlaylist(token);
+            const playlistsItems = await Promise.all(playlists.map(playlist => getPlaylistItems(token, playlist.id)));
             const documents = playlists.flatMap((playlist, i) => getPlaylistItemDocuments(playlist, playlistsItems[i]));
             const searchIndex = new SearchIndex(documents, ['name', 'album', 'artist']);
             setSearchIndex(searchIndex);
         }
 
         init();
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         if(query.length == 0) return;
