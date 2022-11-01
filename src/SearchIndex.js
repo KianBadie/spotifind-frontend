@@ -20,7 +20,11 @@ class SearchIndex {
     }
 
     search(query) {
-        const results = this.index.search(query);
+        const results = this.index.query((q) => {
+            const tokens = lunr.tokenizer(query);
+            q.term(tokens, { presence: lunr.Query.presence.REQUIRED, wildcard: lunr.Query.wildcard.TRAILING });
+        });
+
         return results.map(result => ({ 
             ...result, 
             document: this.documentDict[result.ref]
