@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Track from './Track';
 
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 import SearchIndex from '../SearchIndex';
@@ -44,13 +45,9 @@ function Spotifind(props) {
         setResults(results);
     }
 
-    const resultList = results.map(result => {
-        const track = result.document;
-        const playlist = track.playlist;
-        return (
-            <li key={result.ref}>{playlist.name} - {track.name}</li>
-        );
-    });
+    const resultList = results.map(result => (
+        <Track key={result.ref} track={result.document}/>
+    ));
 
     return (
         <div>
