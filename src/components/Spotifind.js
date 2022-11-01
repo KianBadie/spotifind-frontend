@@ -34,7 +34,7 @@ function Spotifind(props) {
         }, 250);
 
         return () => clearTimeout(searchTimeout);
-    }, [query]);
+    }, [query, searchIndex]);
 
     function handleChange(e) {
         const query = e.target.value;
