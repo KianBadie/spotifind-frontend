@@ -50,9 +50,9 @@ function Spotifind(props) {
                 value={query}
                 onChange={handleChange}
             />
-            <ul>
+            <ol>
                 {resultList}
-            </ul>
+            </ol>
         </div>
     );
 
