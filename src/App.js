@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Header from './components/Header';
 import Welcome from './components/Welcome';
 import Spotifind from './components/Spotifind';
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div>
+      <Header/>
       { !token ? <Welcome failedAuth={failedAuth}/> : <Spotifind token={token} /> }
     </div>
   );
