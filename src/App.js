@@ -10,26 +10,29 @@ function App() {
   const [token, setToken] = useState('');
   const [failedAuth, setFailedAuth] = useState(false);
 
-  useEffect(() => {
-    const authCode = new URLSearchParams(window.location.search).get('code');
+  const authCode = new URLSearchParams(window.location.search).get('code');
 
+  useEffect(() => {
     if(!authCode) return;
+
+    setFailedAuth(false);
 
     axios.post('auth/token', { code: authCode })
       .then((res) => {
-        const data = res.data;
-        setToken(data.access_token);
-        setFailedAuth(false);
+        setToken(res.data.access_token);
       })
       .catch((err) => {
         setFailedAuth(true);
       });
-  }, []);
+  }, [authCode]);
 
   return (
     <div>
       <Header/>
-      { !token ? <Welcome failedAuth={failedAuth}/> : <Spotifind token={token} /> }
+      {(() => {
+        if(token) return <Spotifind token={token}/>
+        else if(!authCode) return <Welcome failedAuth={failedAuth}/>
+      })()}
     </div>
   );
 
