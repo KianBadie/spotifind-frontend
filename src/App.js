@@ -11,13 +11,16 @@ function App() {
   useEffect(() => {
     const authCode = new URLSearchParams(window.location.search).get('code');
 
-    async function getToken() {
-      const res = await axios.post('auth/token', { code: authCode });
-      const data = res.data;
-      setToken(data.access_token);
-    }
+    if(!authCode) return;
 
-    if(authCode) getToken();
+    axios.post('auth/token', { code: authCode })
+      .then((res) => {
+        const data = res.data;
+        setToken(data.access_token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
