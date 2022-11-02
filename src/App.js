@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Login from './components/Login';
+import Welcome from './components/Welcome';
 import Spotifind from './components/Spotifind';
 
 import axios from 'axios';
@@ -7,6 +7,7 @@ import axios from 'axios';
 function App() {
 
   const [token, setToken] = useState('');
+  const [failedAuth, setFailedAuth] = useState(false);
 
   useEffect(() => {
     const authCode = new URLSearchParams(window.location.search).get('code');
@@ -17,15 +18,16 @@ function App() {
       .then((res) => {
         const data = res.data;
         setToken(data.access_token);
+        setFailedAuth(false);
       })
       .catch((err) => {
-        console.log(err);
+        setFailedAuth(true);
       });
   }, []);
 
   return (
     <div>
-      { !token ? <Login/> : <Spotifind token={token} /> }
+      { !token ? <Welcome failedAuth={failedAuth}/> : <Spotifind token={token} /> }
     </div>
   );
 
