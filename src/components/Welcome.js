@@ -1,4 +1,5 @@
 import Header from './Header';
+import DemoGif from './DemoGif';
 
 import styled from 'styled-components';
 
@@ -39,6 +40,7 @@ function Welcome(props) {
                     <p>Search for songs, artists, and albums across your entire playlists library.</p>
                     <LoginButton href="/auth/login">LOG IN WITH SPOTIFY</LoginButton>
                 </DescriptionContainer>
+                <DemoGif/>
             </WelcomeContent>
         </WelcomeContainer>
     );
