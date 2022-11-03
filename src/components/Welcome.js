@@ -1,4 +1,5 @@
 import Header from './Header';
+import LoginButton from './LoginButton';
 import DemoGif from './DemoGif';
 
 import styled from 'styled-components';
@@ -22,15 +23,6 @@ const DescriptionContainer = styled.div`
     color: #5c5c5c;
 `;
 
-const LoginButton = styled.a`
-    border-radius: 100px;
-    padding: 16px 32px;
-    background: #474747;
-    color: #fff;
-    font-weight: 400;
-    text-decoration: none;
-`;
-
 function Welcome(props) {
     return (
         <WelcomeContainer>
@@ -38,7 +30,7 @@ function Welcome(props) {
                 <DescriptionContainer>
                     <Header/>
                     <p>Search for songs, artists, and albums across your entire playlists library.</p>
-                    <LoginButton href="/auth/login">LOG IN WITH SPOTIFY</LoginButton>
+                    <LoginButton/>
                 </DescriptionContainer>
                 <DemoGif/>
             </WelcomeContent>
