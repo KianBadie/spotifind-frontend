@@ -1,7 +1,15 @@
+import styled from 'styled-components';
+
+const Title = styled.h1`
+    margin: 0;
+    color: #000;
+    font-size: 6em;
+`;
+
 function Header() {
     return (
         <header>
-            <h1>Spotifind</h1>
+            <Title>Spotifind</Title>
         </header>
     );
 }
