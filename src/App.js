@@ -9,6 +9,7 @@ import axios from 'axios';
 const AppContainer = styled.div`
 	height: 100vh;
 	background: #fff;
+	font-family: 'Roboto', sans-serif;
 `;
 
 function App() {
