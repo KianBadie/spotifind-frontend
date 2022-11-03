@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const LoginLink = styled.a`
     border-radius: 100px;
     padding: 16px 32px;
-    background: #474747;
+    background: #5c5c5c;
     color: #fff;
     font-weight: 400;
     text-decoration: none;
