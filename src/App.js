@@ -12,6 +12,16 @@ function App() {
 
   const authCode = new URLSearchParams(window.location.search).get('code');
 
+  const renderApp = () => {
+    if(token) {
+      return <Spotifind token={token}/>;
+    } else if (authCode && !failedAuth) {
+      return null;
+    } else {
+      return <Welcome failedAuth={failedAuth}/>;
+    }
+  };
+
   useEffect(() => {
     if(!authCode) return;
 
@@ -29,10 +39,7 @@ function App() {
   return (
     <div>
       <Header/>
-      {(() => {
-        if(token) return <Spotifind token={token}/>
-        else if(!authCode) return <Welcome failedAuth={failedAuth}/>
-      })()}
+      {renderApp()}
     </div>
   );
 
