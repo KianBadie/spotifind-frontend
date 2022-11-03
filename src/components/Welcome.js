@@ -16,11 +16,21 @@ const WelcomeContent = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
+    gap: 32px;
 `;
 
 const DescriptionContainer = styled.div`
+    flex: 0 0 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
     color: #5c5c5c;
+`;
+
+const Description = styled.p`
+    margin: 0;
 `;
 
 function Welcome(props) {
@@ -29,7 +39,7 @@ function Welcome(props) {
             <WelcomeContent>
                 <DescriptionContainer>
                     <Header/>
-                    <p>Search for songs, artists, and albums across your entire playlists library.</p>
+                    <Description>Search for songs, artists, and albums across your entire playlists library.</Description>
                     <LoginButton/>
                 </DescriptionContainer>
                 <DemoGif/>
