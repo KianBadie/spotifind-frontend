@@ -20,7 +20,7 @@ const WelcomeContent = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-    flex: 0 0 50%;
+    flex: 0 0 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
