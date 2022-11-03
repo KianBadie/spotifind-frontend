@@ -3,7 +3,13 @@ import Header from './components/Header';
 import Welcome from './components/Welcome';
 import Spotifind from './components/Spotifind';
 
+import styled from 'styled-components';
 import axios from 'axios';
+
+const AppContainer = styled.div`
+	height: 100vh;
+	background: #fff;
+`;
 
 function App() {
 
@@ -37,10 +43,10 @@ function App() {
 	}, [authCode]);
 
 	return (
-		<div>
+		<AppContainer>
 			<Header/>
 			{renderApp()}
-		</div>
+		</AppContainer>
 	);
 
 }
