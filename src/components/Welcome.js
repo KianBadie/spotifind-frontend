@@ -1,4 +1,4 @@
-import Header from './Header';
+import SiteTitle from './SiteTitle';
 import LoginButton from './LoginButton';
 import DemoGif from './DemoGif';
 
@@ -38,7 +38,7 @@ function Welcome(props) {
         <WelcomeContainer className={props.className}>
             <WelcomeContent>
                 <DescriptionContainer>
-                    <Header/>
+                    <SiteTitle/>
                     <Description>Search for songs, artists, and albums across your entire playlists library.</Description>
                     <LoginButton/>
                 </DescriptionContainer>
