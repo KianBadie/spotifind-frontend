@@ -46,7 +46,7 @@ function Spotifind(props) {
     ));
 
     return (
-        <div>
+        <div className={props.className}>
             <input 
                 type='search'
                 value={query}

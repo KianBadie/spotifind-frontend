@@ -4,7 +4,7 @@ function Track(props) {
     const playlist = track.playlist;
 
     return (
-        <li>
+        <li className={props.className}>
             {track.name} : {track.album} - {playlist.name}
         </li>
     );

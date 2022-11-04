@@ -13,9 +13,9 @@ const PinkText = styled.span`
     color: #d47a86;
 `;
 
-function Header() {
+function Header(props) {
     return (
-        <header>
+        <header className={props.className}>
             <Title>
                 <BlueText>Spoti</BlueText>
                 <PinkText>find</PinkText>

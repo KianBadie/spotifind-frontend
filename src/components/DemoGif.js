@@ -14,9 +14,9 @@ const DemoGifImg = styled.img`
     transform: perspective(1000px) rotateY(350deg);
 `
 
-function DemoGif() {
+function DemoGif(props) {
     return (
-        <DemoGifContainer>
+        <DemoGifContainer className={props.className}>
             <DemoGifImg src='demo.gif' alt='Demo of using site to search playlists.'/>
         </DemoGifContainer>
     );

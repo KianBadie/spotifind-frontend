@@ -35,7 +35,7 @@ const Description = styled.p`
 
 function Welcome(props) {
     return (
-        <WelcomeContainer>
+        <WelcomeContainer className={props.className}>
             <WelcomeContent>
                 <DescriptionContainer>
                     <Header/>

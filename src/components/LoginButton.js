@@ -9,9 +9,9 @@ const LoginLink = styled.a`
     text-decoration: none;
 `;
 
-function LoginButton() {
+function LoginButton(props) {
     return (
-        <LoginLink href="/auth/login">LOG IN WITH SPOTIFY</LoginLink>
+        <LoginLink href="/auth/login" className={props.className}>LOG IN WITH SPOTIFY</LoginLink>
     );
 }
 
