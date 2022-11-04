@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const DemoGifContainer = styled.div`
+    padding: 16px;
+`;
+
 const DemoGifImg = styled.img`
     max-width: 100%;
     max-height: 100%;
@@ -12,9 +16,9 @@ const DemoGifImg = styled.img`
 
 function DemoGif() {
     return (
-        <div>
+        <DemoGifContainer>
             <DemoGifImg src='demo.gif' alt='Demo of using site to search playlists.'/>
-        </div>
+        </DemoGifContainer>
     );
 }
 
