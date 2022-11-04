@@ -8,7 +8,7 @@ import axios from 'axios';
 const AppContainer = styled.div`
 	margin: auto;
 	max-width: 80em;
-	padding: 0 48px;
+	padding: 0 16px;
 	background: #fff;
 	font-family: 'Roboto', sans-serif;
 `;
