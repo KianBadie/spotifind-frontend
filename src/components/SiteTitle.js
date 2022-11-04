@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+import breakpoints from '../breakpoints';
 
 const SiteTitleContainer = styled.h1`
     margin: 0;
-    font-size: 6em;
+    font-size: 4em;
+
+    @media ${breakpoints.tablet} {
+        font-size: 6em;
+    }
 `;
 
 const BlueText = styled.span`
