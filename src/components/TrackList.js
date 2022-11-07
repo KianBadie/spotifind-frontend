@@ -9,7 +9,7 @@ const TrackListOrderedList = styled.ol`
 `;
 
 const TrackListTrack = styled(Track)`
-    margin-bottom: 16px;
+    margin: 2px 0px;
 `;
 
 function TrackList(props) {

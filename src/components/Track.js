@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
 const TrackContainer = styled.div`
+    border-radius: 16px;
+    padding: 16px;
     display: flex;
     align-items: center;
     color: #5c5c5c;
+    transition: background 0.1s, transform 0.1s;
+
+    &:hover {
+        background: #fdedef;
+        transform: scale(1.01);
+    }
 `;
 
 const AlbumCover = styled.img`
     margin-right: 16px;
+    border-radius: 4px;
 `;
 
 const TitleContainer = styled.div`
@@ -22,7 +31,7 @@ const AlbumContainer = styled.div`
 `;
 
 const PlaylistContainer = styled.div`
-    flex: 1;
+    flex: 0 0 15%;
 `;
 
 function Track(props) {
