@@ -4,9 +4,9 @@ function Track(props) {
     const playlist = track.playlist;
 
     return (
-        <li className={props.className}>
+        <div className={props.className}>
             {track.name} : {track.album} - {playlist.name}
-        </li>
+        </div>
     );
 
 }

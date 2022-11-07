@@ -13,7 +13,9 @@ function TrackList(props) {
     const tracks = props.tracks;
 
     const resultList = tracks.map(track => (
-        <Track key={track.id} track={track}/>
+        <li key={track.id}>
+            <Track track={track}/>
+        </li>
     ));
 
     return (
