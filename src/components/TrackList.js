@@ -8,13 +8,17 @@ const TrackListOrderedList = styled.ol`
     list-style: none;
 `;
 
+const TrackListTrack = styled(Track)`
+    margin-bottom: 16px;
+`;
+
 function TrackList(props) {
 
     const tracks = props.tracks;
 
     const resultList = tracks.map(track => (
         <li key={track.playlistId}>
-            <Track track={track}/>
+            <TrackListTrack track={track}/>
         </li>
     ));
 
