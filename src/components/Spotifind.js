@@ -2,9 +2,20 @@ import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
 import TrackList from './TrackList';
 
+import styled from 'styled-components';
+
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 import { getPlaylistItemDocuments } from '../utilities';
 import SearchIndex from '../SearchIndex';
+
+const SpotifindContainer = styled.div`
+    margin-top: 50px;
+`;
+
+const SpotifindSearchBar = styled(SearchBar)`
+    margin: 0px auto 16px;
+    width: 50%;
+`;
 
 function Spotifind(props) {
 
@@ -41,10 +52,10 @@ function Spotifind(props) {
 
 
     return (
-        <div className={props.className}>
-            <SearchBar setQuery={setQuery}/>
+        <SpotifindContainer className={props.className}>
+            <SpotifindSearchBar setQuery={setQuery}/>
             <TrackList tracks={tracks}/>
-        </div>
+        </SpotifindContainer>
     );
 
 }
