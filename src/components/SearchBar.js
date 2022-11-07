@@ -27,7 +27,7 @@ function SearchBar(props) {
     }
     
     return (
-        <SearchBarContainer>
+        <SearchBarContainer className={props.className}>
             <SearchInput 
                 type='search'
                 value={query}
