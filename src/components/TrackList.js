@@ -13,7 +13,7 @@ function TrackList(props) {
     const tracks = props.tracks;
 
     const resultList = tracks.map(track => (
-        <Track key={track.ref} track={track.document}/>
+        <Track key={track.id} track={track}/>
     ));
 
     return (

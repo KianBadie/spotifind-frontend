@@ -10,7 +10,7 @@ function Spotifind(props) {
 
     const [searchIndex, setSearchIndex] = useState();
     const [query, setQuery] = useState('');
-    const [results, setResults] = useState([]);
+    const [tracks, setTracks] = useState([]);
 
     const { token } = props;
 
@@ -31,7 +31,8 @@ function Spotifind(props) {
 
         const searchTimeout = setTimeout(() => {
             const results = searchIndex.search(query);
-            setResults(results);
+            const tracks = results.map(result => result.document);
+            setTracks(tracks);
         }, 250);
 
         return () => clearTimeout(searchTimeout);
@@ -42,7 +43,7 @@ function Spotifind(props) {
     return (
         <div className={props.className}>
             <SearchBar setQuery={setQuery}/>
-            <TrackList tracks={results}/>
+            <TrackList tracks={tracks}/>
         </div>
     );
 
