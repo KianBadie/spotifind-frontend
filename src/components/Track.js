@@ -5,7 +5,7 @@ function Track(props) {
 
     return (
         <div className={props.className}>
-            {track.name} : {track.album} - {playlist.name}
+            {track.name} : {track.album.name} - {playlist.name}
         </div>
     );
 

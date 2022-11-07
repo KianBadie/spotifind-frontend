@@ -13,7 +13,7 @@ function TrackList(props) {
     const tracks = props.tracks;
 
     const resultList = tracks.map(track => (
-        <li key={track.id}>
+        <li key={track.playlistId}>
             <Track track={track}/>
         </li>
     ));

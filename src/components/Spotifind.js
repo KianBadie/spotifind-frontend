@@ -31,7 +31,7 @@ function Spotifind(props) {
 
         const searchTimeout = setTimeout(() => {
             const results = searchIndex.search(query);
-            const tracks = results.map(result => result.document);
+            const tracks = results.map(result => result.document.track);
             setTracks(tracks);
         }, 250);
 
