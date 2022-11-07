@@ -32,7 +32,6 @@ function SearchBar(props) {
                 type='search'
                 value={query}
                 onChange={handleChange}
-                className={props.className}
             />
         </SearchBarContainer>
     );
