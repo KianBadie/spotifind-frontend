@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
-import Track from './Track';
+import TrackList from './TrackList';
 
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 import { getPlaylistItemDocuments } from '../utilities';
@@ -37,16 +37,12 @@ function Spotifind(props) {
         return () => clearTimeout(searchTimeout);
     }, [query, searchIndex]);
 
-    const resultList = results.map(result => (
-        <Track key={result.ref} track={result.document}/>
-    ));
+
 
     return (
         <div className={props.className}>
             <SearchBar setQuery={setQuery}/>
-            <ol>
-                {resultList}
-            </ol>
+            <TrackList tracks={results}/>
         </div>
     );
 
