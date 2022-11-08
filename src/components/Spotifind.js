@@ -21,6 +21,10 @@ const SpotifindSearchBar = styled(SearchBar)`
     width: 50%;
 `;
 
+const ResultsMessage = styled.p`
+    margin: 0;
+`;
+
 const SpotifindTrackList = styled(TrackList)`
     width: 100%;
 `;
@@ -63,9 +67,10 @@ function Spotifind(props) {
         <SpotifindContainer className={props.className}>
             <SiteTitle/>
             <SpotifindSearchBar setQuery={setQuery}/>
-            {tracks.length > 0 && 
+            {tracks.length > 0 && <>
+                <ResultsMessage>{tracks.length} songs found in your playlist</ResultsMessage>
                 <SpotifindTrackList tracks={tracks}/>
-            }
+            </>}
         </SpotifindContainer>
     );
 
