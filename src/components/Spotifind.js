@@ -63,7 +63,9 @@ function Spotifind(props) {
         <SpotifindContainer className={props.className}>
             <SiteTitle/>
             <SpotifindSearchBar setQuery={setQuery}/>
-            <SpotifindTrackList tracks={tracks}/>
+            {tracks.length > 0 && 
+                <SpotifindTrackList tracks={tracks}/>
+            }
         </SpotifindContainer>
     );
 
