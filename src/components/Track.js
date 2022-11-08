@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import TrackTitle from './TrackTitle';
+
+import styled, { css } from "styled-components";
 import breakpoints from '../breakpoints';
 
 const TrackContainer = styled.tr`
@@ -7,6 +9,7 @@ const TrackContainer = styled.tr`
     display: flex;
     align-items: center;
     gap: 32px;
+    white-space: nowrap;
     transition: background 0.1s, transform 0.1s;
 
     &:hover {
@@ -15,56 +18,40 @@ const TrackContainer = styled.tr`
     }
 `;
 
-const TrackField = styled.td`
+const TrackField = css`
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
-const SongField = styled(TrackField)`
-    display: flex;
-    gap: 16px;
+const TitleField = styled(TrackTitle)`
+    ${TrackField}
 `;
 
-const AlbumCover = styled.img`
-    width: 60px;
-    height: 60px;
-    border-radius: 4px;
-`;
-
-const TitleContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-`;
-
-const AlbumField = styled(TrackField)`
-    display: none;
+const AlbumField = styled.td`
+    ${TrackField}
+    display: none;  
 
     @media ${breakpoints.tablet} {
         display: initial;
     }
 `;
 
-const PlaylistField = styled(TrackField)`
+const PlaylistField = styled.td`
+    ${TrackField}
     flex: 0 0 15%;
 `;
 
 function Track(props) {
 
     const track = props.track;
-    const artist = track.artists[0];
     const album = track.album;
     const playlist = track.playlist;
-    const playlistImage = playlist.images[playlist.images.length - 1].url;
 
     return (
         <TrackContainer className={props.className}>
-            <SongField>
-                <AlbumCover src={playlistImage}/>
-                <TitleContainer>
-                    <span>{track.name}</span>
-                    <span>{artist.name}</span>
-                </TitleContainer>
-            </SongField>
+            <TitleField track={track}/>
             <AlbumField>
                 <span>{album.name}</span>
             </AlbumField>
