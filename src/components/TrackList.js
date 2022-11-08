@@ -2,10 +2,6 @@ import Track from './Track';
 
 import styled from 'styled-components';
 
-const TrackTable = styled.table`
-    color: #5c5c5c;
-`;
-
 const TableHeader = styled.tr`
     display: flex;
     padding: 0px 16px;
@@ -32,7 +28,7 @@ function TrackList(props) {
     const resultList = tracks.map(track => <Track key={track.playlistId} track={track}/>);
 
     return (
-        <TrackTable className={props.className}>
+        <table className={props.className}>
 
             <TableHeader>
                 <TableHeading scope="col">
@@ -43,7 +39,8 @@ function TrackList(props) {
             </TableHeader>
 
             {resultList}
-        </TrackTable>
+            
+        </table>
     );
 }
 

@@ -13,7 +13,6 @@ const SearchInput = styled.input`
     border: none;
     padding: 0;
     display: block;
-    color: #5c5c5c;
     font-size: 1em;
     outline: none;
 `;

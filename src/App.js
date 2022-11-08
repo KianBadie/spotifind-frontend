@@ -10,6 +10,7 @@ const AppContainer = styled.div`
 	max-width: 50em;
 	padding: 0 16px;
 	background: #fff;
+	color: #5c5c5c;
 	font-family: 'Roboto', sans-serif;
 `;
 
