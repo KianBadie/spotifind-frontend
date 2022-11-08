@@ -29,16 +29,20 @@ function TrackList(props) {
 
     return (
         <table className={props.className}>
+            
+            <thead>
+                <TableHeader>
+                    <TableHeading scope="col">
+                        <SongTitle>Title</SongTitle>
+                    </TableHeading>
+                    <TableHeading scope="col">Album</TableHeading>
+                    <PlaylistHeading scope="col">Playlist</PlaylistHeading>
+                </TableHeader>
+            </thead>
 
-            <TableHeader>
-                <TableHeading scope="col">
-                    <SongTitle>Title</SongTitle>
-                </TableHeading>
-                <TableHeading scope="col">Album</TableHeading>
-                <PlaylistHeading scope="col">Playlist</PlaylistHeading>
-            </TableHeader>
-
-            {resultList}
+            <tbody>
+                {resultList}
+            </tbody>
             
         </table>
     );
