@@ -14,6 +14,7 @@ const TrackImage = styled.img`
 const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
     overflow: hidden;
 `;
