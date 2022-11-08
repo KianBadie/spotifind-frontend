@@ -16,6 +16,8 @@ const TrackContainer = styled.div`
 
 const AlbumCover = styled.img`
     margin-right: 16px;
+    width: 60px;
+    height: 60px;
     border-radius: 4px;
 `;
 
@@ -40,10 +42,11 @@ function Track(props) {
     const artist = track.artists[0];
     const album = track.album;
     const playlist = track.playlist;
+    const playlistImage = playlist.images[playlist.images.length - 1].url;
 
     return (
         <TrackContainer className={props.className}>
-            <AlbumCover src={playlist.images[2].url}/>
+            <AlbumCover src={playlistImage}/>
             <TitleContainer>
                 <span>{track.name}</span>
                 <span>{artist.name}</span>
