@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import SiteTitle from './SiteTitle';
 import SearchBar from './SearchBar';
 import TrackList from './TrackList';
 
@@ -10,11 +11,18 @@ import SearchIndex from '../SearchIndex';
 
 const SpotifindContainer = styled.div`
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 `;
 
 const SpotifindSearchBar = styled(SearchBar)`
-    margin: 0px auto 16px;
     width: 50%;
+`;
+
+const SpotifindTrackList = styled(TrackList)`
+    width: 100%;
 `;
 
 function Spotifind(props) {
@@ -53,8 +61,9 @@ function Spotifind(props) {
 
     return (
         <SpotifindContainer className={props.className}>
+            <SiteTitle/>
             <SpotifindSearchBar setQuery={setQuery}/>
-            <TrackList tracks={tracks}/>
+            <SpotifindTrackList tracks={tracks}/>
         </SpotifindContainer>
     );
 
