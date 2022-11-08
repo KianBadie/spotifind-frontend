@@ -6,6 +6,7 @@ const TrackContainer = styled.tr`
     padding: 16px;
     display: flex;
     align-items: center;
+    gap: 32px;
     transition: background 0.1s, transform 0.1s;
 
     &:hover {
@@ -15,7 +16,7 @@ const TrackContainer = styled.tr`
 `;
 
 const TrackField = styled.td`
-    flex: 1
+    flex: 1;
 `;
 
 const SongField = styled(TrackField)`

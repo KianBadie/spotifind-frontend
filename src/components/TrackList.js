@@ -3,6 +3,10 @@ import Track from './Track';
 import styled from 'styled-components';
 import breakpoints from '../breakpoints';
 
+const TrackListContainer = styled.table`
+    table-layout: fixed;
+`;
+
 const TableHeader = styled.tr`
     display: flex;
     padding: 0px 16px;
@@ -37,7 +41,7 @@ function TrackList(props) {
     const resultList = tracks.map(track => <Track key={track.playlistId} track={track}/>);
 
     return (
-        <table className={props.className}>
+        <TrackListContainer className={props.className}>
             
             <thead>
                 <TableHeader>
@@ -53,7 +57,7 @@ function TrackList(props) {
                 {resultList}
             </tbody>
             
-        </table>
+        </TrackListContainer>
     );
 }
 
