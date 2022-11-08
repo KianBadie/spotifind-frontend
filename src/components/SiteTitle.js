@@ -21,8 +21,8 @@ const PinkText = styled.span`
 function SiteTitle(props) {
     return (
         <SiteTitleContainer className={props.className}>
-            <BlueText>Spoti</BlueText>
-            <PinkText>find</PinkText>
+            <BlueText>Truly</BlueText>
+            <PinkText>Found</PinkText>
         </SiteTitleContainer>
     );
 }
