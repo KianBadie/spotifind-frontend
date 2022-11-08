@@ -13,8 +13,11 @@ const TrackContainer = styled.tr`
     }
 `;
 
-const SongContainer = styled.td`
-    flex: 1;
+const TrackField = styled.td`
+    flex: 1
+`;
+
+const SongField = styled(TrackField)`
     display: flex;
     gap: 16px;
 `;
@@ -31,11 +34,7 @@ const TitleContainer = styled.div`
     gap: 8px;
 `;
 
-const AlbumContainer = styled.td`
-    flex: 1;
-`;
-
-const PlaylistContainer = styled.td`
+const PlaylistField = styled(TrackField)`
     flex: 0 0 15%;
 `;
 
@@ -49,19 +48,19 @@ function Track(props) {
 
     return (
         <TrackContainer className={props.className}>
-            <SongContainer>
+            <SongField>
                 <AlbumCover src={playlistImage}/>
                 <TitleContainer>
                     <span>{track.name}</span>
                     <span>{artist.name}</span>
                 </TitleContainer>
-            </SongContainer>
-            <AlbumContainer>
+            </SongField>
+            <TrackField>
                 <span>{album.name}</span>
-            </AlbumContainer>
-            <PlaylistContainer>
+            </TrackField>
+            <PlaylistField>
                 <span>{playlist.name}</span>
-            </PlaylistContainer>
+            </PlaylistField>
         </TrackContainer>
     );
 
