@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-const TrackContainer = styled.div`
+const TrackContainer = styled.tr`
     border-radius: 16px;
     padding: 16px;
     display: flex;
     align-items: center;
-    color: #5c5c5c;
     transition: background 0.1s, transform 0.1s;
 
     &:hover {
@@ -14,25 +13,29 @@ const TrackContainer = styled.div`
     }
 `;
 
+const SongContainer = styled.td`
+    flex: 1;
+    display: flex;
+    gap: 16px;
+`;
+
 const AlbumCover = styled.img`
-    margin-right: 16px;
     width: 60px;
     height: 60px;
     border-radius: 4px;
 `;
 
 const TitleContainer = styled.div`
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;
 `;
 
-const AlbumContainer = styled.div`
+const AlbumContainer = styled.td`
     flex: 1;
 `;
 
-const PlaylistContainer = styled.div`
+const PlaylistContainer = styled.td`
     flex: 0 0 15%;
 `;
 
@@ -46,11 +49,13 @@ function Track(props) {
 
     return (
         <TrackContainer className={props.className}>
-            <AlbumCover src={playlistImage}/>
-            <TitleContainer>
-                <span>{track.name}</span>
-                <span>{artist.name}</span>
-            </TitleContainer>
+            <SongContainer>
+                <AlbumCover src={playlistImage}/>
+                <TitleContainer>
+                    <span>{track.name}</span>
+                    <span>{artist.name}</span>
+                </TitleContainer>
+            </SongContainer>
             <AlbumContainer>
                 <span>{album.name}</span>
             </AlbumContainer>
