@@ -1,6 +1,7 @@
 import Track from './Track';
 
 import styled from 'styled-components';
+import breakpoints from '../breakpoints';
 
 const TableHeader = styled.tr`
     display: flex;
@@ -15,6 +16,14 @@ const TableHeading = styled.th`
 
 const SongTitle = styled.span`
     margin-left: 76px;
+`;
+
+const AlbumHeading = styled(TableHeading)`
+    display: none;
+
+    @media ${breakpoints.tablet} {
+        display: initial;
+    }
 `;
 
 const PlaylistHeading = styled(TableHeading)`
@@ -35,7 +44,7 @@ function TrackList(props) {
                     <TableHeading scope="col">
                         <SongTitle>Title</SongTitle>
                     </TableHeading>
-                    <TableHeading scope="col">Album</TableHeading>
+                    <AlbumHeading scope="col">Album</AlbumHeading>
                     <PlaylistHeading scope="col">Playlist</PlaylistHeading>
                 </TableHeader>
             </thead>

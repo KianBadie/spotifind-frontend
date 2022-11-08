@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from '../breakpoints';
 
 const TrackContainer = styled.tr`
     border-radius: 16px;
@@ -34,6 +35,14 @@ const TitleContainer = styled.div`
     gap: 8px;
 `;
 
+const AlbumField = styled(TrackField)`
+    display: none;
+
+    @media ${breakpoints.tablet} {
+        display: initial;
+    }
+`;
+
 const PlaylistField = styled(TrackField)`
     flex: 0 0 15%;
 `;
@@ -55,9 +64,9 @@ function Track(props) {
                     <span>{artist.name}</span>
                 </TitleContainer>
             </SongField>
-            <TrackField>
+            <AlbumField>
                 <span>{album.name}</span>
-            </TrackField>
+            </AlbumField>
             <PlaylistField>
                 <span>{playlist.name}</span>
             </PlaylistField>
