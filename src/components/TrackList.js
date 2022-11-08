@@ -19,7 +19,11 @@ const TableHeading = styled.th`
 `;
 
 const SongTitle = styled.span`
-    margin-left: 76px;
+    margin-left: 56px;
+
+    @media ${breakpoints.tablet} {
+        margin-left: 76px;
+    }
 `;
 
 const AlbumHeading = styled(TableHeading)`

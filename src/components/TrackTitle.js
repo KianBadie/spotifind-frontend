@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from '../breakpoints';
 
 const TrackTitleContainer = styled.td`
     display: flex;
@@ -6,9 +7,14 @@ const TrackTitleContainer = styled.td`
 `;
 
 const TrackImage = styled.img`
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 4px;
+
+    @media ${breakpoints.tablet} {
+        width: 60px;
+        height: 60px;
+    }
 `;
 
 const TextContainer = styled.div`
