@@ -9,12 +9,17 @@ const TrackContainer = styled.tr`
     display: flex;
     align-items: center;
     gap: 32px;
+    font-size: 0.8125em;
     white-space: nowrap;
     transition: background 0.1s, transform 0.1s;
 
     &:hover {
         background: #fdedef;
         transform: scale(1.01);
+    }
+
+    @media ${breakpoints.tablet} {
+        font-size: 1em;
     }
 `;
 
