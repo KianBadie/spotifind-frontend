@@ -71,8 +71,6 @@ function Spotifind(props) {
         return () => clearTimeout(searchTimeout);
     }, [query, searchIndex]);
 
-
-
     return (
         <SpotifindContainer className={props.className}>
             <SiteTitle/>
