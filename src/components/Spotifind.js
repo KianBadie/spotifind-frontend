@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import TrackList from './TrackList';
 
 import styled from 'styled-components';
+import breakpoints from '../breakpoints';
 
 import { getPlaylist, getPlaylistItems } from '../spotifyUtils';
 import { getPlaylistItemDocuments } from '../utilities';
@@ -18,7 +19,16 @@ const SpotifindContainer = styled.div`
 `;
 
 const SpotifindSearchBar = styled(SearchBar)`
-    width: 50%;
+    box-sizing: border-box;
+    width: 100%;
+
+    @media ${breakpoints.mobileL} {
+        width: 80%;
+    }
+
+    @media ${breakpoints.tablet} {
+        width: 60%;
+    }
 `;
 
 const ResultsMessage = styled.p`
