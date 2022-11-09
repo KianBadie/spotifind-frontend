@@ -35,7 +35,11 @@ const AlbumHeading = styled(TableHeading)`
 `;
 
 const PlaylistHeading = styled(TableHeading)`
-    flex: 0 0 15%;
+    flex: 0 0 25%;
+
+    @media ${breakpoints.tablet} {
+        flex: 0 0 15%;
+    }
 `;
 
 function TrackList(props) {

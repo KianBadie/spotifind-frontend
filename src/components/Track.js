@@ -8,7 +8,7 @@ const TrackContainer = styled.tr`
     padding: 16px;
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 16px;
     font-size: 0.8125em;
     white-space: nowrap;
     transition: background 0.1s, transform 0.1s;
@@ -19,6 +19,7 @@ const TrackContainer = styled.tr`
     }
 
     @media ${breakpoints.tablet} {
+        gap: 32px;
         font-size: 1em;
     }
 `;
@@ -45,7 +46,11 @@ const AlbumField = styled.td`
 
 const PlaylistField = styled.td`
     ${TrackField}
-    flex: 0 0 15%;
+    flex: 0 0 25%;
+
+    @media ${breakpoints.tablet} {
+        flex: 0 0 15%;
+    }
 `;
 
 function Track(props) {
