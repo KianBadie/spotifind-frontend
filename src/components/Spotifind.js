@@ -60,7 +60,7 @@ function Spotifind(props) {
     }, [token]);
 
     useEffect(() => {
-        if(query.length === 0) return;
+        if(query.trim().length === 0) return;
 
         const searchTimeout = setTimeout(() => {
             const results = searchIndex.search(query);
