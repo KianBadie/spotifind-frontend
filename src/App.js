@@ -19,7 +19,9 @@ function App() {
 	const [token, setToken] = useState('');
 	const [failedAuth, setFailedAuth] = useState(false);
 
-	const authCode = new URLSearchParams(window.location.search).get('code');
+	const urlParams = new URLSearchParams(window.location.search);
+	const authCode = urlParams.get('code');
+	const state = urlParams.get('state');
 
 	const renderApp = () => {
 		if(token) {
@@ -36,14 +38,14 @@ function App() {
 
 		setFailedAuth(false);
 
-		axios.post('auth/token', { code: authCode })
+		axios.post('auth/token', { code: authCode, state: state })
 			.then((res) => {
 				setToken(res.data.access_token);
 			})
 			.catch((err) => {
 				setFailedAuth(true);
 			});
-	}, [authCode]);
+	}, [authCode, state]);
 
 	return (
 		<AppContainer>
