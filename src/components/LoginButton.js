@@ -11,7 +11,7 @@ const LoginLink = styled.a`
 
 function LoginButton(props) {
     return (
-        <LoginLink href="https://trulyfound.up.railway.app/auth/login" className={props.className}>LOG IN WITH SPOTIFY</LoginLink>
+        <LoginLink href='/auth/login' className={props.className}>LOG IN WITH SPOTIFY</LoginLink>
     );
 }
 

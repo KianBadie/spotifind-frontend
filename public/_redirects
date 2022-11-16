@@ -1,2 +1,2 @@
-# /auth/login   https://trulyfound.up.railway.app/auth/login 200
-# /auth/token   https://trulyfound.up.railway.app/auth/token 200
+/auth/login   https://trulyfound.up.railway.app/auth/login 200
+/auth/token   https://trulyfound.up.railway.app/auth/token 200
