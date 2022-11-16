@@ -37,7 +37,7 @@ function App() {
 
 		setFailedAuth(false);
 
-		axios.post('auth/token', { code: authCode, state: state })
+		axios.post('https://trulyfound.up.railway.app/auth/token', { code: authCode, state: state })
 			.then((res) => {
 				setToken(res.data.access_token);
 			})
