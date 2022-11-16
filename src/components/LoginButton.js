@@ -5,7 +5,7 @@ const LoginLink = styled.a`
     padding: 16px 32px;
     background: #5c5c5c;
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
     text-decoration: none;
 `;
 
