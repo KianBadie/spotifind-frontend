@@ -13,9 +13,11 @@ const WelcomeContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 32px;
 
     @media ${breakpoints.desktop} {
         flex-direction: row;
+        gap: 0px;
     }
 `;
 
@@ -41,9 +43,18 @@ const WelcomeSiteTitle = styled(SiteTitle)`
 
 const Description = styled.p`
     margin: 0 0 32px 0;
+    text-align: center;
 
     @media ${breakpoints.desktop} {
         margin: 0 0 64px 0;
+        text-align: start;
+    }
+`;
+
+const WelcomeDemoGif = styled(DemoGif)`
+    @media ${breakpoints.desktop} {
+        transform: perspective(1000px) rotateY(350deg);
+        transform-origin: right;
     }
 `;
 
@@ -55,7 +66,7 @@ function Welcome(props) {
                 <Description>Search for songs, artists, and albums across your entire playlists library.</Description>
                 <LoginButton/>
             </DescriptionContainer>
-            <DemoGif/>
+            <WelcomeDemoGif/>
         </WelcomeContainer>
     );
 }
