@@ -6,7 +6,9 @@ import styled from 'styled-components';
 import breakpoints from '../breakpoints';
 
 const WelcomeContainer = styled.div`
+    margin: auto;
     height: 100vh;
+    max-width: 80em;
     display: flex;
     flex-direction: column;
     justify-content: center;

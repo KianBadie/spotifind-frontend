@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const AppContainer = styled.div`
 	margin: auto;
-	max-width: 50em;
 	padding: 0 16px;
 	background: #fff;
 	color: #5c5c5c;
