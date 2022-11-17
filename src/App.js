@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Welcome from './components/Welcome';
 import Spotifind from './components/Spotifind';
+import Footer from './components/Footer';
 
 import styled from 'styled-components';
 import axios from 'axios';
@@ -49,6 +50,7 @@ function App() {
 	return (
 		<AppContainer>
 			{renderApp()}
+			<Footer/>
 		</AppContainer>
 	);
 
