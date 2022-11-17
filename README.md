@@ -3,6 +3,8 @@ Web app using the [Spotify API](https://developer.spotify.com/documentation/web-
 
 https://trulyfound.netlify.app/
 
+![demo](https://user-images.githubusercontent.com/18221058/202546512-89eff729-f345-4df9-a923-cdf2ad01435e.gif)
+
 ## Technologies used
 ### FrontEnd
 - Framework: Reactjs
