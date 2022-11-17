@@ -7,8 +7,11 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const AppContainer = styled.div`
+	position: relative;
 	margin: auto;
-	padding: 0 16px;
+	box-sizing: border-box;
+	min-height: 100vh;
+	padding: 50px 16px 4.5em;
 	background: #fff;
 	color: #5c5c5c;
 	font-family: 'Roboto', sans-serif;

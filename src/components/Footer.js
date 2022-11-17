@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import socials from "../socials";
 
 const FooterContainer = styled.div`
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4.5em;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

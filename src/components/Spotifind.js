@@ -11,7 +11,7 @@ import { getPlaylistItemDocuments } from '../utilities';
 import SearchIndex from '../SearchIndex';
 
 const SpotifindContainer = styled.div`
-    margin: 50px auto 0;
+    margin: 0 auto;
     max-width: 50em;
     display: flex;
     flex-direction: column;
